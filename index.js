@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var PromiseProxy = require('proxied-promise-object');
 var Promise = require('es6-promises');
 var bz = require('bz');
@@ -9,6 +10,11 @@ var utils = require('./lib/utils');
 var opts = nomnom.parse();
 var bugzilla = PromiseProxy(Promise, bz.createClient());
 var error = false;
+
+if (opts._.length === 0) {
+  console.log('Usage:', process.argv[0], 'BUG [BUG ...]');
+  process.exit(1);
+}
 
 Promise.all(opts._.map(function(bugNo) {
   return bugzilla.getBug(bugNo)
