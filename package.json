@@ -1,6 +1,6 @@
 {
   "name": "bug-task",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Add taskwarrior tasks from Bugzilla IDs.",
   "main": "index.js",
   "dependencies": {
